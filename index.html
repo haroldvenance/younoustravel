@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUNOUSTRAVEL – Hajj, Omra et voyages d’exception</title>
+    <meta name="description" content="Agence YOUNOUSTRAVEL : formules Omra, Hajj, réservation de billets d'avion, visas, hôtels à La Mecque et Médine, transferts et accompagnement personnalisé." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.younoustravel.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="YOUNOUSTRAVEL – Votre partenaire de confiance pour le Hajj et la Omra" />
+    <meta property="og:description" content="Agence spécialisée dans les voyages religieux : Omra, Hajj, billets d'avion, visas, hébergements et transferts." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.younoustravel.com/" />
+    <meta property="og:image" content="https://www.younoustravel.com/assets/img/og-image.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="YOUNOUSTRAVEL – Hajj, Omra et voyages" />
+    <meta name="twitter:description" content="Formules Omra, réservation de billets, visas, hôtels et accompagnement." />
+    <meta name="twitter:image" content="https://www.younoustravel.com/assets/img/og-image.jpg" />
+
+    <!-- Icône -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome pour les icônes de réseaux sociaux -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        islamicGreen: '#0D4D14',
+                        gold: '#D4AF37',
+                        darkGreen: '#1B5E20',
+                        whatsappGreen: '#25D366',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(13, 77, 20, 0.8), rgba(0, 0, 0, 0.6));
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .social-link {
+            transition: transform 0.3s ease;
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 scroll-smooth">
+
+    <!-- En-tête / Navigation -->
+    <header class="fixed w-full bg-white/95 backdrop-blur shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <img src="assets/img/logo.jpg" alt="Logo YOUNOUSTRAVEL" class="h-10 w-auto" />
+                    <span class="text-2xl font-bold text-darkGreen">YOUNOUS<span class="text-gold">TRAVEL</span></span>
+                </a>
+
+                <!-- Navigation desktop -->
+                <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wide">
+                    <a href="#accueil" class="hover:text-gold transition">Accueil</a>
+                    <a href="#services" class="hover:text-gold transition">Services</a>
+                    <a href="#contact" class="hover:text-gold transition">Contact</a>
+                </nav>
+
+                <!-- Bouton menu mobile -->
+                <button id="menu-btn" class="md:hidden text-darkGreen focus:outline-none" aria-label="Menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#accueil" class="block px-6 py-3 text-sm font-semibold uppercase hover:bg-gray-50">Accueil</a>
+            <a href="#services" class="block px-6 py-3 text-sm font-semibold uppercase hover:bg-gray-50">Services</a>
+            <a href="#contact" class="block px-6 py-3 text-sm font-semibold uppercase hover:bg-gray-50">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1591604021931-2a1b1e3c6b4e?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto text-white">
+            <h1 class="text-4xl md:text-6xl font-bold font-['Playfair_Display'] mb-6 leading-tight">
+                YOUNOUSTRAVEL – Votre partenaire de confiance pour le <span class="text-gold">Hajj</span>, la <span class="text-gold">Omra</span> et tous vos voyages
+            </h1>
+            <p class="text-lg md:text-2xl mb-8 font-light">Voyagez en toute sérénité avec nos services sur mesure : formules Omra, billets d’avion, visas, hébergement et accompagnement.</p>
+            <a href="#services" class="inline-block bg-gold text-darkGreen font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition transform hover:-translate-y-1">
+                Découvrir nos services
+            </a>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl font-bold text-darkGreen mb-4">Nos services</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Une gamme complète pour préparer et vivre votre voyage spirituel dans les meilleures conditions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">🕋</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Formules Omra</h3>
+                <p class="text-gray-600">Économique, Standard et VIP – tout inclus pour un voyage adapté à votre budget.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">✈️</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Billets d’avion</h3>
+                <p class="text-gray-600">Réservation de vols secs ou combinés vers Djeddah, Médine, et au-delà.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">🛂</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Assistance visas</h3>
+                <p class="text-gray-600">Obtention de visas Omra, touristiques et Hajj, simplifiée et rapide.</p>
+            </div>
+            <!-- Service 4 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">🏨</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Hôtels</h3>
+                <p class="text-gray-600">Sélection d’hébergements à La Mecque et Médine, proches des lieux saints.</p>
+            </div>
+            <!-- Service 5 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">🚐</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Transferts</h3>
+                <p class="text-gray-600">Prise en charge aéroport – hôtel – Haram en véhicules climatisés.</p>
+            </div>
+            <!-- Service 6 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">🚌</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Transport interurbain</h3>
+                <p class="text-gray-600">Navettes confortables entre La Mecque, Médine et Djeddah.</p>
+            </div>
+            <!-- Service 7 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">👨‍🏫</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Accompagnement</h3>
+                <p class="text-gray-600">Conseils pratiques et suivi spirituel avant, pendant et après votre Hajj/Omra.</p>
+            </div>
+            <!-- Service 8 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">💧</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Eau de Zamzam</h3>
+                <p class="text-gray-600">Distribution d’eau bénite selon disponibilité, pour votre retour.</p>
+            </div>
+            <!-- Service 9 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition reveal text-center">
+                <div class="text-5xl mb-4">📞</div>
+                <h3 class="text-xl font-bold text-darkGreen mb-3">Assistance 24/7</h3>
+                <p class="text-gray-600">Une équipe dédiée joignable avant, pendant et après votre voyage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact & Réseaux Sociaux -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-darkGreen to-islamicGreen text-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center reveal mb-16">
+                <h2 class="text-4xl font-bold mb-4">Contactez-nous</h2>
+                <p class="text-xl text-gray-200">Une question ? Besoin d’un devis ? Nous sommes à votre écoute.</p>
+            </div>
+
+            <!-- Bloc WhatsApp & Email -->
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 reveal">
+                <!-- Carte WhatsApp -->
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-8 flex-1 text-center border border-white/20">
+                    <i class="fab fa-whatsapp text-6xl text-whatsappGreen mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">WhatsApp</h3>
+                    <p class="mb-6 text-lg font-mono select-all">+966 55 805 6608</p>
+                    <a href="https://wa.me/966558056608" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 bg-whatsappGreen hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp text-2xl"></i> Discuter sur WhatsApp
+                    </a>
+                </div>
+
+                <!-- Carte Email -->
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-8 flex-1 text-center border border-white/20">
+                    <i class="far fa-envelope text-6xl text-gold mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">E-mail</h3>
+                    <p class="mb-6 text-lg font-mono select-all">younoustravel9@gmail.com</p>
+                    <a href="mailto:younoustravel9@gmail.com"
+                       class="inline-flex items-center gap-2 bg-gold hover:bg-yellow-500 text-darkGreen font-bold py-4 px-8 rounded-full text-lg shadow-lg transition transform hover:scale-105">
+                        <i class="far fa-envelope text-2xl"></i> Envoyer un e-mail
+                    </a>
+                </div>
+            </div>
+
+            <!-- Réseaux sociaux avec logos officiels -->
+            <div class="mt-20 reveal">
+                <h3 class="text-center text-3xl font-bold mb-10">Suivez-nous sur les réseaux</h3>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/younoustravel" target="_blank" rel="noopener noreferrer"
+                       class="social-link flex flex-col items-center group text-white hover:text-pink-400 transition">
+                        <i class="fab fa-instagram text-5xl mb-3"></i>
+                        <span class="text-lg font-semibold">@younoustravel</span>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/YOUNOUSTRAVEL" target="_blank" rel="noopener noreferrer"
+                       class="social-link flex flex-col items-center group text-white hover:text-blue-400 transition">
+                        <i class="fab fa-facebook-f text-5xl mb-3"></i>
+                        <span class="text-lg font-semibold">YOUNOUSTRAVEL</span>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@younoustravel" target="_blank" rel="noopener noreferrer"
+                       class="social-link flex flex-col items-center group text-white hover:text-gray-200 transition">
+                        <i class="fab fa-tiktok text-5xl mb-3"></i>
+                        <span class="text-lg font-semibold">@younoustravel</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 YOUNOUSTRAVEL. Tous droits réservés.</p>
+            <p class="mt-2">"Votre partenaire de confiance pour le Hajj, la Omra et tous vos voyages."</p>
+        </div>
+    </footer>
+
+    <!-- Données structurées JSON-LD pour SEO -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "YOUNOUSTRAVEL",
+            "description": "Agence spécialisée dans les services de Hajj et Omra, réservation de billets d'avion, visas, transferts et hébergements.",
+            "url": "https://www.younoustravel.com",
+            "logo": "https://www.younoustravel.com/assets/img/logo.jpg",
+            "slogan": "Votre partenaire de confiance pour le Hajj, la Omra et tous vos voyages.",
+            "sameAs": [
+                "https://www.instagram.com/younoustravel",
+                "https://www.facebook.com/YOUNOUSTRAVEL",
+                "https://www.tiktok.com/@younoustravel"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+966558056608",
+                "email": "younoustravel9@gmail.com",
+                "contactType": "customer service",
+                "availableLanguage": "French"
+            }
+        }
+    </script>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
