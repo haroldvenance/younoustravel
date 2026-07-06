@@ -35,10 +35,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0A2E4F',        // Bleu marine
-                        accent: '#2DB5E6',         // Turquoise
-                        gold: '#C9A227',           // Or
-                        success: '#4CAF50',        // Vert validation
+                        primary: '#0A2E4F',
+                        accent: '#2DB5E6',
+                        gold: '#C9A227',
+                        success: '#4CAF50',
                         whatsappGreen: '#25D366',
                     }
                 }
@@ -46,7 +46,6 @@
         }
     </script>
 
-    <!-- Styles personnalisés -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap');
 
@@ -69,7 +68,6 @@
             background: linear-gradient(135deg, rgba(10, 46, 79, 0.85), rgba(45, 181, 230, 0.3));
         }
 
-        /* Animations au scroll */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -87,12 +85,13 @@
             transform: scale(1.1);
         }
 
-        /* Style du détail pour les langues */
-        details#langues-details summary {
-            list-style: none; /* Cache le marqueur par défaut */
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* Section traduction masquée par défaut */
+        .hidden-section {
+            display: none;
+        }
+
+        /* Style du bouton de bascule */
+        .toggle-langues-btn {
             background-color: var(--accent);
             color: white;
             font-weight: 600;
@@ -101,15 +100,10 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: background-color 0.3s;
+            border: none;
         }
-        details#langues-details summary:hover {
+        .toggle-langues-btn:hover {
             background-color: var(--primary);
-        }
-        details#langues-details summary i {
-            transition: transform 0.3s;
-        }
-        details#langues-details[open] summary i {
-            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -119,7 +113,6 @@
     <header class="fixed w-full bg-white/95 backdrop-blur shadow-md z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <!-- Logo -->
                 <a href="#" class="flex items-center space-x-3" aria-label="YOUNOUS TRAVEL - Accueil">
                     <img src="assets/img/logo.jpg" alt="Logo YOUNOUS TRAVEL" class="h-10 w-auto" loading="lazy" decoding="async" />
                     <span class="text-2xl font-extrabold text-primary tracking-wide font-title">
@@ -127,15 +120,13 @@
                     </span>
                 </a>
 
-                <!-- Navigation desktop -->
                 <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wide text-primary" aria-label="Navigation principale">
                     <a href="#accueil" class="hover:text-gold transition">Accueil</a>
                     <a href="#services" class="hover:text-gold transition">Services</a>
-                    <a href="#traduction" class="hover:text-gold transition">Traduction</a>
+                    <a href="#traduction" class="hover:text-gold transition nav-traduction-link">Traduction</a>
                     <a href="#contact" class="hover:text-gold transition">Contact</a>
                 </nav>
 
-                <!-- Bouton menu mobile -->
                 <button id="menu-btn" class="md:hidden text-primary focus:outline-none" aria-label="Menu" aria-expanded="false">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -144,11 +135,10 @@
             </div>
         </div>
 
-        <!-- Menu mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t" role="navigation" aria-label="Menu mobile">
             <a href="#accueil" class="block px-6 py-3 text-sm font-semibold uppercase text-primary hover:bg-gray-50">Accueil</a>
             <a href="#services" class="block px-6 py-3 text-sm font-semibold uppercase text-primary hover:bg-gray-50">Services</a>
-            <a href="#traduction" class="block px-6 py-3 text-sm font-semibold uppercase text-primary hover:bg-gray-50">Traduction</a>
+            <a href="#traduction" class="block px-6 py-3 text-sm font-semibold uppercase text-primary hover:bg-gray-50 nav-traduction-link">Traduction</a>
             <a href="#contact" class="block px-6 py-3 text-sm font-semibold uppercase text-primary hover:bg-gray-50">Contact</a>
         </div>
     </header>
@@ -237,43 +227,33 @@
                 <i class="fas fa-language text-5xl text-success mb-4" aria-hidden="true"></i>
                 <h3 class="text-xl font-bold text-primary mb-3">Traduction de documents</h3>
                 <p class="text-gray-600">Services de traduction professionnelle en plusieurs langues.</p>
-                <a href="#traduction" id="voir-langues-link" class="inline-block mt-4 text-sm text-accent font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded">
-                    Voir les langues <i class="fas fa-chevron-down ml-1" aria-hidden="true"></i>
-                </a>
+                <button id="toggle-langues-btn" class="toggle-langues-btn mt-4 text-sm focus:outline-none focus:ring-2 focus:ring-white">
+                    <i class="fas fa-chevron-down mr-2" aria-hidden="true"></i> Voir les langues
+                </button>
             </article>
         </div>
     </main>
 
-    <!-- ==================== SECTION TRADUCTION ==================== -->
-    <section id="traduction" class="py-20 px-4 bg-gray-50">
+    <!-- ==================== SECTION TRADUCTION (masquée par défaut) ==================== -->
+    <section id="traduction" class="hidden-section py-20 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <i class="fas fa-language text-6xl text-accent mb-4" aria-hidden="true"></i>
                 <h2 class="text-4xl font-extrabold text-primary mb-4 font-title">Traduction de documents</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Nous traduisons vos documents officiels et administratifs dans les langues suivantes. 
-                    Cliquez sur le bouton ci-dessous pour les découvrir.
+                    Nous traduisons vos documents officiels et administratifs dans les langues suivantes.
                 </p>
             </div>
 
-            <!-- Détails pliable pour les langues -->
-            <div class="text-center reveal">
-                <details id="langues-details">
-                    <summary>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        Voir les langues disponibles
-                    </summary>
-                    <div class="flex flex-wrap justify-center gap-4 mt-8">
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇫🇷 Français</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇬🇧 Anglais</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇪🇸 Espagnol</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇵🇹 Portugais</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇷🇺 Russe</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇨🇳 Chinois</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇩🇪 Allemand</span>
-                        <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇸🇦 Arabe</span>
-                    </div>
-                </details>
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇫🇷 Français</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇬🇧 Anglais</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇪🇸 Espagnol</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇵🇹 Portugais</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇷🇺 Russe</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇨🇳 Chinois</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇩🇪 Allemand</span>
+                <span class="bg-white shadow px-6 py-3 rounded-full font-semibold text-primary border border-accent">🇸🇦 Arabe</span>
             </div>
         </div>
     </section>
@@ -286,9 +266,7 @@
                 <p class="text-xl text-gray-200">Une question ? Besoin d’un devis ? Nous sommes à votre écoute.</p>
             </div>
 
-            <!-- Blocs WhatsApp & Email -->
             <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 reveal">
-                <!-- WhatsApp principal -->
                 <div class="bg-white/10 backdrop-blur rounded-2xl p-8 flex-1 text-center border border-white/20">
                     <i class="fab fa-whatsapp text-6xl text-whatsappGreen mb-4" aria-hidden="true"></i>
                     <h3 class="text-2xl font-bold mb-2">WhatsApp</h3>
@@ -298,8 +276,6 @@
                         <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i> Discuter sur WhatsApp
                     </a>
                 </div>
-
-                <!-- Email -->
                 <div class="bg-white/10 backdrop-blur rounded-2xl p-8 flex-1 text-center border border-white/20">
                     <i class="far fa-envelope text-6xl text-gold mb-4" aria-hidden="true"></i>
                     <h3 class="text-2xl font-bold mb-2">E-mail</h3>
@@ -311,7 +287,6 @@
                 </div>
             </div>
 
-            <!-- Autres téléphones (dont le nouveau +221) -->
             <div class="mt-8 reveal text-center">
                 <p class="text-xl font-semibold mb-3">Autres contacts téléphoniques :</p>
                 <p class="text-2xl font-bold"><a href="tel:+966564249674" class="hover:text-gold transition">+966 564 249 674</a></p>
@@ -319,23 +294,19 @@
                 <p class="text-2xl font-bold"><a href="tel:+221761506573" class="hover:text-gold transition">+221 76 150 65 73</a></p>
             </div>
 
-            <!-- Réseaux sociaux -->
             <div class="mt-20 reveal">
                 <h3 class="text-center text-3xl font-bold mb-10 font-title">Suivez-nous sur les réseaux</h3>
                 <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Instagram -->
                     <a href="https://www.instagram.com/younous_travel" target="_blank" rel="noopener noreferrer"
                        class="social-link flex flex-col items-center group text-white hover:text-pink-400 transition" aria-label="Instagram">
                         <i class="fab fa-instagram text-5xl mb-3" aria-hidden="true"></i>
                         <span class="text-lg font-semibold">@younoustravel</span>
                     </a>
-                    <!-- Facebook -->
                     <a href="https://www.facebook.com/YOUNOUSTRAVEL" target="_blank" rel="noopener noreferrer"
                        class="social-link flex flex-col items-center group text-white hover:text-blue-400 transition" aria-label="Facebook">
                         <i class="fab fa-facebook-f text-5xl mb-3" aria-hidden="true"></i>
                         <span class="text-lg font-semibold">YOUNOUSTRAVEL</span>
                     </a>
-                    <!-- TikTok -->
                     <a href="https://www.tiktok.com/@younoustravel" target="_blank" rel="noopener noreferrer"
                        class="social-link flex flex-col items-center group text-white hover:text-gray-200 transition" aria-label="TikTok">
                         <i class="fab fa-tiktok text-5xl mb-3" aria-hidden="true"></i>
@@ -346,7 +317,6 @@
         </div>
     </section>
 
-    <!-- ==================== PIED DE PAGE ==================== -->
     <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4">
             <p>&copy; 2026 YOUNOUS TRAVEL. Tous droits réservés.</p>
@@ -354,7 +324,7 @@
         </div>
     </footer>
 
-    <!-- ==================== DONNÉES STRUCTURÉES JSON-LD ==================== -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -370,79 +340,74 @@
                 "https://www.tiktok.com/@younoustravel"
             ],
             "contactPoint": [
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "+966558056608",
-                    "email": "younoustravel9@gmail.com",
-                    "contactType": "customer service",
-                    "availableLanguage": ["French", "Arabic", "English"]
-                },
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "+966564249674",
-                    "contactType": "sales"
-                },
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "+242066957973",
-                    "contactType": "customer service"
-                },
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "+221761506573",
-                    "contactType": "customer service"
-                }
+                { "telephone": "+966558056608", "email": "younoustravel9@gmail.com", "contactType": "customer service" },
+                { "telephone": "+966564249674", "contactType": "sales" },
+                { "telephone": "+242066957973", "contactType": "customer service" },
+                { "telephone": "+221761506573", "contactType": "customer service" }
             ]
         }
     </script>
 
-    <!-- ==================== SCRIPTS ==================== -->
     <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Gestion du menu mobile
+            // Menu mobile
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
-                    const isExpanded = !mobileMenu.classList.contains('hidden');
-                    menuBtn.setAttribute('aria-expanded', isExpanded);
+                    menuBtn.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
                 });
-                // Fermer le menu mobile au clic sur un lien
                 mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
+                    link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
                         menuBtn.setAttribute('aria-expanded', 'false');
                     });
                 });
             }
 
-            // Animation des éléments "reveal" au scroll
+            // Animation reveal
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('active');
                 });
             }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // Ouverture automatique des langues depuis le lien "Voir les langues"
-            const voirLanguesLink = document.getElementById('voir-langues-link');
-            const languesDetails = document.getElementById('langues-details');
-            if (voirLanguesLink && languesDetails) {
-                voirLanguesLink.addEventListener('click', function(e) {
+            // --- Gestion affichage/masquage de la section Traduction ---
+            const traductionSection = document.getElementById('traduction');
+            const toggleBtn = document.getElementById('toggle-langues-btn');
+
+            function setTraductionVisible(visible, scroll = false) {
+                if (visible) {
+                    traductionSection.classList.remove('hidden-section');
+                    if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-chevron-up mr-2" aria-hidden="true"></i> Masquer les langues';
+                } else {
+                    traductionSection.classList.add('hidden-section');
+                    if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-chevron-down mr-2" aria-hidden="true"></i> Voir les langues';
+                }
+                if (scroll && visible) {
+                    traductionSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // Défilement vers la section traduction
-                    document.getElementById('traduction').scrollIntoView({ behavior: 'smooth' });
-                    // Ouvre le détail avec un petit délai pour le scroll
-                    setTimeout(() => {
-                        languesDetails.open = true;
-                    }, 400);
+                    const isHidden = traductionSection.classList.contains('hidden-section');
+                    setTraductionVisible(isHidden, true);
                 });
             }
+
+            // Liens de navigation "Traduction" (desktop + mobile)
+            document.querySelectorAll('.nav-traduction-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    setTraductionVisible(true, true);
+                });
+            });
         });
     </script>
 </body>
