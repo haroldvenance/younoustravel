@@ -1134,3 +1134,27 @@ form.form-elegant textarea:focus{
   display: inline-block;
   vertical-align: middle;
 }
+
+/* ============================================
+   ADDITIONAL STYLES FOR DEVIS MODAL
+   ============================================ */
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay[style*="display: flex"] {
+  opacity: 1;
+}
+.modal-content {
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay[style*="display: flex"] .modal-content {
+  transform: translateY(0);
+}
+
+/* Hover sur les liens téléphone */
+.contact-phone-link:hover {
+  background: var(--navy-soft) !important;
+  color: var(--gold-light) !important;
+}
